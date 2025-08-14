@@ -168,6 +168,13 @@ npm run dev
 GEMINI_API_KEY=your_gemini_api_key
 NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
 SUPABASE_SERVICE_KEY=your_supabase_service_key
+SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Optional: External Integrations
+GITHUB_CLIENT_ID=your_github_client_id
+GITHUB_CLIENT_SECRET=your_github_client_secret
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
 \`\`\`
 
 ## Project Structure
@@ -264,6 +271,22 @@ Generate a comprehensive project plan from a brief idea.
 **Rate Limits:**
 - 5 requests per minute per IP address
 - Requests are throttled beyond this limit
+
+## Deployment Instructions
+
+### Vercel Deployment
+1. Push your code to GitHub repository
+2. Connect repository to Vercel
+3. Add environment variables in Vercel Project Settings:
+   - `GEMINI_API_KEY` - Your Google AI Studio API key
+   - `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+   - `SUPABASE_SERVICE_KEY` - Your Supabase service role key
+   - `SUPABASE_ANON_KEY` - Your Supabase anonymous key
+4. Deploy automatically triggers on push to main branch
+
+### Database Setup
+1. Run the SQL script in `scripts/001_create_project_plans_table.sql` in your Supabase SQL editor
+2. Ensure Row Level Security is enabled for the `project_plans` table
 
 ## Contributing
 

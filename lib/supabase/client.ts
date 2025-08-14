@@ -11,3 +11,11 @@ export const isSupabaseConfigured =
 export const supabase = isSupabaseConfigured
   ? createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!)
   : null
+
+export const getSupabaseClient = () => {
+  if (!isSupabaseConfigured) {
+    console.warn("Supabase is not configured. Some features may not work.")
+    return null
+  }
+  return supabase
+}
